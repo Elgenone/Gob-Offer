@@ -1,0 +1,147 @@
+﻿*
+{
+    font-family:Arial;
+    box-sizing:border-box;
+}
+body {
+    padding:50px;
+    padding-top:100px;
+    padding-bottom:250px;
+    
+}
+
+.navbar-expand-lg
+{
+         background-color: #939ea9!important;
+         box-shadow: 1px -1px 2px 5px black;
+        
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(252, 246, 246, 0.5);
+        text-shadow: 0 0 8px black;
+}
+.navbar-nav  a
+{
+     color: rgba(252, 246, 246, 0.5);
+       text-shadow: 0 0 8px black;
+       text-decoration:none;
+       margin:7px;
+       
+}
+
+.navbar-nav  a:hover
+{
+    color:black;
+    transition:all 0.5s ease-in-out;
+}
+.dropdown
+{
+    margin-right:70px;
+}
+.navbar-nav .dropdown-menu
+{
+    background-color:#4c5861;
+ 
+    
+}
+.dropdown-item
+{
+    color:#ffffff;    
+}
+.dropdown-item:hover
+{
+    color:aqua;
+    background-color:#212529a8;
+}
+
+footer
+{
+    background-color:#939ea9;
+    padding-top:10px;
+    text-align:justify;
+    color:#4c5861;
+    box-shadow: 0px 0px 8px 4px black;
+   
+}
+footer h3
+{
+    color:black;
+}
+
+footer .subfooter
+{
+    background-color:rgba(252, 246, 246, 0.5);
+    color:black;
+    padding:5px;
+    text-align:center;
+    margin:0px;
+}
+
+footer ul
+{
+    text-decoration:none;
+
+}
+
+footer a
+{
+    color: #eceff3;
+    text-decoration: none;
+     text-shadow: 0 0 5px black;
+    background-color: transparent;
+}
+
+footer a:hover
+{
+    text-decoration:none;
+    color:black;
+    transition:all 0.5s ease-in-out;
+        
+
+
+}
+
+footer a:hover i
+{
+    background-color:white;
+    transform:rotate(360deg);
+    border:solid 2px black;
+    border-radius:50%;
+    transition:all 0.5s ease-in-out;
+}
+
+
+footer i
+{
+    border:solid 1px black;
+    border-radius:50%;
+    padding:6px;
+    margin:3px;
+    
+}
+
+.logo_size
+{
+    width:120px;
+    height:62px;
+}
+
+.delete
+{
+  margin-bottom:50px;
+  padding-bottom:50px;
+}
+
+#search {
+    margin-top:10px;
+    width: 100px;
+    border-radius: 5px;
+    border: 3px solid #939ea9;
+    transition:all 0.4s ease-in-out ;
+}
+
+#search:focus
+{
+    width:100%;
+} 

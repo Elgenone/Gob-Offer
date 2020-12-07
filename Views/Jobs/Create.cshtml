@@ -1,0 +1,65 @@
+﻿@model WebApplication1.Models.Job
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+<h2>Create</h2>
+<script src="~/scripts/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("create", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Job</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.jobtitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.jobtitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.jobtitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jobdesc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.jobdesc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.jobdesc, "", new { @class = "text-danger", @id= "jobdesc" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jobimage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               <input type="file" name="upload" />
+                @Html.ValidationMessageFor(model => model.jobimage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.catagoryid, "catagory Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("catagoryid", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.catagoryid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    CKEDITOR.replace("jobdesc");
+</script>

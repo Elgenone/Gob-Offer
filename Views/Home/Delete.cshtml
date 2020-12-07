@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.ApplyJob
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ApplyJob</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.job.jobtitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job.jobtitle)
+        </dd>
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplyTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "GetJobsByUser")
+        </div>
+    }
+</div>

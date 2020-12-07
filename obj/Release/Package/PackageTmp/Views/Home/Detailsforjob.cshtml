@@ -1,0 +1,42 @@
+﻿@model WebApplication1.Models.ApplyJob
+
+@{
+    ViewBag.Title = "Detailsforjob";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+<h2>Detailsforjob</h2>
+
+<div>
+    <h4>ApplyJob</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.job.jobtitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job.jobtitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplyTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "GetJobsByUser")
+</p>

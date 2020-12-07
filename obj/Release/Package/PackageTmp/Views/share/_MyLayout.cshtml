@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    <title>@ViewBag.Title</title>
+    
+    <link href="~/contentes/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/contentes/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/contentes/Style.css" rel="stylesheet" />
+    
+</head>
+<body>
+
+    <div>
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light  fixed-top  ">
+            <a class="navbar-brand" href="/Home">
+                <img src="~/images/logo.png" class="logo_size" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Home">
+                            <i class="fa fa-home"></i>
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Contact">
+                            <i class="fa fa-phone"></i>
+                            Cntact Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">
+                            <i class="fab fa-waze"></i>
+                            About Us
+                        </a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ofers</a>
+                    </li>                   
+
+                   
+
+                    <li class="nav-item">
+                        @using (Html.BeginForm("search","Home",FormMethod.Post))
+                        {
+                            <input type="text" name="search" id="search" placeholder="Search.." />
+                            <img src="~/images/icons8-search-24.png" />
+                        }
+                       
+                    </li>
+
+                </ul>
+
+                <!-- partial login -->
+                @Html.Partial("~/Views/share/_login.cshtml")
+
+                
+            </div>
+        </nav>
+
+
+        <!--End Navbar-->
+        <div class="container">
+            <div class="row" style="min-height:400px;">
+
+                @RenderBody()
+
+            </div>
+        </div>
+
+                <!--Footer-->
+                <footer class="navbar navbar-expand-lg navbar-light ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3>Who Are We</h3>
+                                <p>
+                                    We are a very important company
+                                    with very large works and salary
+                                    wy have many branches
+                                    in all around the world.
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h3>Important Links</h3>
+                                <ul>
+
+                                    <li> <a href="#">Genral Jobs</a> </li>
+                                    <li> <a href="#">Private Jobs</a> </li>
+                                    <li> <a href="#">Jobs Out Side The Country</a> </li>
+                                    <li> <a href="#">various Jobs</a> </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h3>Contact Us</h3>
+                                <ul>
+
+                                    <li>
+                                        
+                                        <a href="#"><i class="fa fa-facebook-f"></i> Facebook</a>
+                                    </li>
+                                    <li>
+                                        
+                                        <a href="#"><i class="fa fa-youtube"></i> Youtube</a>
+                                    </li>
+                                    <li>
+                                        
+                                        <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                                    </li>
+                                    <li>
+                                        
+                                        <a href="#"><i class="fa fa-envelope-o"></i> Give a Message To Us</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="subfooter">
+                            All Rights Saved For The Employment  Site -2019
+                        </div>
+                    </div>
+
+
+                </footer>
+
+                <!--End Footer-->
+
+
+            </div>
+
+            <script src="~/scripts/jquery-3.3.1.min.js"></script>
+            <script src="~/scripts/popper.min.js"></script>
+            <script src="~/scripts/bootstrap.min.js"></script>
+            @RenderSection("scripts" , required:false )
+</body>
+</html>

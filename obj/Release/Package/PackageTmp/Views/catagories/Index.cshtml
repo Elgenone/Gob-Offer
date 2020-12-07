@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication1.Models.catagory>
+
+@{
+    ViewBag.Title = "Catagory List";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New Catagory", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.catagoryname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.catagorydesc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.catagoryname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.catagorydesc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

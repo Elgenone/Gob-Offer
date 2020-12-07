@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.Job>
+
+@{
+    ViewBag.Title = "Job List";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New Job", "Create")
+</p>
+
+<table class="table table-hover table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.catagory.catagoryname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobtitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobdesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobimage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.catagory.catagoryname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jobtitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jobdesc)
+        </td>
+        <td>
+            <img src="~/uploads/@Html.DisplayFor(modelItem => item.jobimage )"
+                 class="thumbnail" style="width:70px; height:70px;" /> 
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

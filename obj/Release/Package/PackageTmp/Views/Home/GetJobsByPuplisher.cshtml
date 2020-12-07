@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebApplication1.Models.JobsViweModel >
+
+@{
+    ViewBag.Title = "GetJobsByPuplisher";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+
+
+
+
+@foreach (var gr in Model)
+{
+   <h2> @gr.jobtitle </h2>
+   <table class="table table-borderd table-hover ">
+       <tr>
+           <th>
+               The Name of Seeker
+           </th>
+           <th>
+               The Message
+           </th>
+           <th>
+               The Date
+           </th>
+       </tr>
+       @foreach (var item in gr.itemes)
+       {
+        <tr>
+            <td>
+                @item.user.UserName
+            </td>
+            <td>
+                @item.message
+            </td>
+            <td>
+                @item.ApplyTime
+            </td>
+        </tr>
+       }
+
+   </table>
+}

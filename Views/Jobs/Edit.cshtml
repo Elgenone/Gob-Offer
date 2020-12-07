@@ -1,0 +1,117 @@
+﻿@model WebApplication1.Models.Job
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/share/_MyLayout.cshtml";
+}
+
+<h2 >Edit</h2>
+
+@using (Html.BeginForm("Edit", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row alert alert-danger" id="error" style="display:none; margin-top:50px;">
+        <span class="err-sp">
+
+        </span>
+
+    </div>
+
+    <div class="form-horizontal">
+        
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.jobimage )
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jobtitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.jobtitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.jobtitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jobdesc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.jobdesc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.jobdesc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jobimage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="upload" id="jobimage" />
+                @Html.ValidationMessageFor(model => model.jobimage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.catagoryid, "catagoryid", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("catagoryid", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.catagoryid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" id="save" />
+            </div>
+
+           
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scripts {
+<script>
+    $(function ()
+    {
+        $("#save").click(function ()
+        {
+            if ( $("#jobimage").val() == "" ) {
+                 $("#error").fadeIn ;
+                 $("#err-sp").append("Please chick your image") ;
+                return false;
+            }
+            /*
+
+            if ($("#jobimage").val() != "") {
+
+                //check the extention
+                var filename = document.getElementById("jobimage").value;
+                var extention = filename.substr(filename.lastIndexOf(" . ") + 1);
+                var validEX = ["jpg", "png", "gif"];
+                if ($.inArray(extention, validEX) == -1) {
+                    $("#error").fadeIn;
+                    $("#err-sp").append("Please Chick Your Image Extention");
+                    return false;
+                }
+
+                //check the size is (2 mb)
+                var filesize = document.getElementById("jobimage").files[0].size / 1024 / 1024;
+
+                if (filesize > 2) {
+                    $("#error").fadeIn;
+                    $("#err-sp").append("Please Chick Your Image Size");
+                    return false;
+                }
+            }
+
+            */
+        });
+    });
+</script>
+    
+    }
+    
+
+
